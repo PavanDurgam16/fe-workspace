@@ -1,0 +1,105 @@
+/* Sidebar styling */
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    color: white;
+    transition: width 0.3s ease;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.sidebar.collapsed {
+    width: 80px;
+    padding: 10px;
+}
+
+.toggle-btn {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.toggle-btn:hover {
+    background-color: #555;
+}
+
+/* Role section styling */
+.role-section {
+    margin-bottom: 10px;
+}
+
+/* Adjust the role name when collapsed */
+.role-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden; /* Hide overflow */
+}
+
+/* Role name styles */
+.role-name {
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflow */
+    position: relative; /* For proper positioning */
+    padding-right: 40px; /* Space between the end of text and arrow */
+    max-width: 220px ; /* Set max-width for scrolling effect */
+    display: block; /* Ensure block-level for positioning */
+}
+
+/* Role name scrolling animation */
+.role-name.scroll {
+    animation: marquee 10s linear infinite; /* Animation for scrolling */
+}
+
+/* Role arrow styling */
+.arrow {
+    transition: transform 0.3s ease;
+    margin-left: 10px;
+    flex-shrink: 0; /* Prevent the arrow from shrinking */
+    color: #f4f4f4;
+    .arrow.open:hover {
+        color: #fff;
+    }
+}
+
+/* Rotate arrow when expanded */
+.arrow.open {
+    transform: rotate(360deg);
+}
+
+/* Hide role name, arrow, and links in collapsed state */
+.sidebar.collapsed .role-name,
+.sidebar.collapsed .arrow,
+.sidebar.collapsed .role-link {
+    display: none;
+}
+
+/* Role links styling */
+.role-link {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    color: white;
+}
+
+/* Link icon styling */
+.link-icon {
+    margin-right: 8px;
+}
+
+/* Animation for scrolling text */
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}

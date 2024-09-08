@@ -1,0 +1,13 @@
+
+/* General container */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Bottom container for sidebar and content */
+.bottom-container {
+    display: flex;
+    flex: 1;
+}
