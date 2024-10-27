@@ -1,0 +1,35 @@
+/* components/CustomAlert.css */
+.custom-alert {
+    position: relative;
+    padding: 10px;
+    width: 50%;
+    background-color: #f8d7da;
+    color: #721c24;
+    margin: 15px auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.alert-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align items vertically in the center */
+    margin-bottom: 5px; /* Space between header and message */
+}
+
+.alert-heading {
+    font-size: 16px; /* Size of the heading text */
+    font-weight: bold; /* Bold font for the heading */
+    margin: 0; /* Remove default margin */
+}
+
+.close-icon {
+    font-size: 20px; /* Size of the close icon */
+    cursor: pointer; /* Pointer cursor to indicate it's clickable */
+    color: #721c24 /* Match the text color of the alert */
+}
+
+.custom-alert p {
+    margin: 0; /* Remove default margin from paragraphs */
+    font-size: 16px; /* Font size for the message */
+}

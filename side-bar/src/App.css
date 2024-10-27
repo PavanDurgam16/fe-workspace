@@ -1,0 +1,68 @@
+/* Main Container for Layout */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--header-bg, #333);
+    color: var(--header-text, #fff);
+    z-index: 1000;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Body Container */
+.app-body {
+    display: flex;
+    margin-top: 60px;
+    height: calc(100vh - 60px);
+    overflow-x: hidden; /* Prevents main content overflow */
+}
+
+/* Sidebar Styles */
+
+.main-content {
+    text-align: center;
+    margin-left: 300px;
+    width: 100%;
+    padding: 20px;
+    overflow-y: auto;
+    height: calc(100vh - 60px);
+    background-color: #f4f4f4;
+    transition: margin-left 0.3s ease;
+}
+
+/* When sidebar is expanded */
+.main-content.expanded {
+    margin-left: 300px;
+    transition: margin-left 0.3s ease;
+}
+
+/* When sidebar is collapsed */
+.main-content.collapsed {
+    margin-left: 80px; /* Adjust to the collapsed sidebar width */
+    transition: margin-left 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .sidebar-container {
+        width: 80px;
+    }
+    .sidebar.collapsed {
+        width: 60px;
+    }
+    .main-content {
+        margin-left: 60px;
+    }
+    .sidebar.collapsed ~ .main-content {
+        margin-left: 60px;
+    }
+}

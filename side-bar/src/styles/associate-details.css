@@ -1,0 +1,60 @@
+/* associate-details.css */
+.associate-details-container {
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.heading {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.date-picker-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.date-picker label {
+    font-weight: bold;
+    margin-right: 10px;
+    color: var(--text-color);
+}
+
+.date-picker input {
+    padding: 5px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.filter-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.filter-btn:hover {
+    background-color: var(--accent-color);
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.associate-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.associate-table th, .associate-table td {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}

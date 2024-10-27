@@ -1,52 +1,138 @@
-/* Reset default browser styles */
+:root {
+  --background-color: #f4f1deff;
+  --primary-color: #3d405bff;
+  --accent-color: #81b29aff;
+  --highlight-color: #e07a5fff;
+  --border-color: #f2cc8fff;
+  --text-color: #3d405bff;
+  --secondary-text-color: #e07a5fff;
+  --success-bg: #81b29aff;
+  --success-text: #f4f1deff;
+  --warning-bg: #f2cc8fff;
+  --warning-text: #3d405bff;
+  --error-bg: #e07a5fff;
+  --error-text: #f4f1deff;
+
+  /* Additional Colors */
+  --sidebar-bg: #3d405bff;
+  --sidebar-text: #f4f1deff;
+  --link-color: #ca8f8f;
+  --link-hover-bg: #81b29aff;
+  --link-active-bg: #e07a5fff;
+  --button-bg: #3d405bff;
+  --button-hover-bg: #81b29aff;
+  --header-bg: #3d405bff;
+  --header-text: #f4f1deff;
+
+
+  --warning-bg: #fff3cd;
+  --warning-color: #856404;
+  --warning-border: #ffeeba;
+
+  --danger-bg: #f8d7da;
+  --danger-color: #721c24;
+  --danger-border: #f5c6cb;
+
+  --modal-bg: #ffffff;
+  --modal-text: #000000;
+  --modal-border: #dee2e6;
+}
+
+/* Improved reset for consistent cross-browser rendering */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif; /* Modern font for better readability */
 }
 
-/* Set basic styles for body */
+/* Set a cleaner default for body */
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #f4f4f4;
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-color); /* Use the defined text color */
+  background-color: var(--background-color); /* Use the defined background color */
 }
 
-/* Ensure root element takes full height */
+/* Smooth scrolling and 100% height/width */
 html, body {
   height: 100%;
   width: 100%;
-}
-
-/* Add smooth scrolling */
-html {
   scroll-behavior: smooth;
 }
 
-/* Basic styles for headings */
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
+  color: var(--primary-color); /* Ensure headings use primary color */
 }
 
-/* Basic styles for lists */
 ul, ol {
   list-style: none;
 }
 
-/* Basic link styling */
 a {
   text-decoration: none;
-  color: inherit; /* Use this to inherit text color */
+  color: var(--link-color); /* Use link color */
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  background-color: var(--link-hover-bg); /* Background change on hover */
+  color: var(--text-color);
 }
 
-/* Basic styles for images */
+a:active {
+  background-color: var(--link-active-bg); /* Background change when active */
+  color: var(--header-text);
+}
+
 img {
   max-width: 100%;
   height: auto;
 }
+
+button {
+  background-color: var(--button-bg);
+  color: var(--header-text);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: var(--button-hover-bg); /* Change button color on hover */
+}
+
+/* Alerts */
+.alert-success {
+  background-color: var(--success-bg);
+  color: var(--success-text);
+  padding: 10px;
+}
+
+.alert-warning {
+  background-color: var(--warning-bg);
+  color: var(--warning-text);
+  padding: 10px;
+}
+
+.alert-error {
+  background-color: var(--error-bg);
+  color: var(--error-text);
+  padding: 10px;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 1px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #f4f1de;
+}
+

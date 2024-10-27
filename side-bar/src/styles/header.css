@@ -1,17 +1,16 @@
 /* Styles for Header component */
-.header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.div-header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
 }
 
 .header-content {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    align-items: center;
+}
+.company-name {
+    font-size: 1.8rem;
 }
 
 .left-content {
@@ -21,6 +20,7 @@
 
 .company-name {
     margin-right: 20px;
+    color: var(--header-text);
 }
 
 .right-container {

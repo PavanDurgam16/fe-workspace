@@ -1,105 +1,168 @@
-/* Sidebar styling */
-.sidebar {
-    width: 250px;
-    background-color: #333;
-    color: white;
+.sidebar-container {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: calc(100vh - 60px);
     transition: width 0.3s ease;
-    padding: 20px;
-    overflow-y: auto;
+    overflow-y: hidden;
 }
+.sidebar {
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    padding: 20px;
+    width: 300px;
+    transition: width 0.3s ease;
+    min-width: 80px;
+    height: 100%;
+    overflow: hidden;
+}
+
 
 .sidebar.collapsed {
-    width: 80px;
-    padding: 10px;
+    width: 60px;
+    padding: 20px 10px;
+    transition: width 0.3s ease, padding 0.3s ease;
 }
 
-.toggle-btn {
-    background-color: #444;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
+.top-section {
+    position: sticky;
+    top: 0;
+    background-color: var(--text-color);
+    z-index: 10;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    justify-content: flex-end; /* Align the toggle button to the end */
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
+
+    .top-section:hover {
+        background-color: var(--accent-color);
+    }
 }
 
-.toggle-btn:hover {
-    background-color: #555;
+.bars {
+    padding : 0px 0px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--background-color);
+    transition: transform 0.3s ease;
+    margin-right: 10px;
 }
 
-/* Role section styling */
+.bars:active {
+    transform: scale(0.9);
+}
+
+.bars:hover {
+    transform: scale(1.2);
+}
+
+.routes {
+    margin-top: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    max-height: calc(100vh - 60px);
+}
+
+/* Custom scrollbar for the role headers */
+.routes::-webkit-scrollbar {
+    width: 6px;
+}
+
+.routes::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+.routes::-webkit-scrollbar-thumb:hover {
+    background-color: var(--border-color);
+}
+
 .role-section {
     margin-bottom: 10px;
 }
 
-/* Adjust the role name when collapsed */
 .role-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 8px 15px;
+    background-color: var(--primary-color);
+    border-radius: 4px;
     cursor: pointer;
-    overflow: hidden; /* Hide overflow */
+    color: var(--sidebar-text);
+    transition: background-color 0.3s ease;
+    border-bottom: 0.01em solid var(--accent-color);
 }
 
-/* Role name styles */
+.role-header:focus {
+    outline: 2px solid var(--background-color);
+}
+
+.role-header:hover {
+    background-color: var(--highlight-color);
+}
+
 .role-name {
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide overflow */
-    position: relative; /* For proper positioning */
-    padding-right: 40px; /* Space between the end of text and arrow */
-    max-width: 220px ; /* Set max-width for scrolling effect */
-    display: block; /* Ensure block-level for positioning */
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 30px;
+    max-width: 180px;
+    display: block;
+    transition: opacity 0.3s ease;
+
 }
 
-/* Role name scrolling animation */
-.role-name.scroll {
-    animation: marquee 10s linear infinite; /* Animation for scrolling */
+.sidebar.collapsed .role-header {
+    opacity: 0;
+    visibility: hidden;
 }
 
-/* Role arrow styling */
 .arrow {
     transition: transform 0.3s ease;
-    margin-left: 10px;
-    flex-shrink: 0; /* Prevent the arrow from shrinking */
-    color: #f4f4f4;
-    .arrow.open:hover {
-        color: #fff;
-    }
+    color: var(--background-color);
 }
 
-/* Rotate arrow when expanded */
 .arrow.open {
-    transform: rotate(360deg);
+    transform: rotate(180deg);
 }
 
-/* Hide role name, arrow, and links in collapsed state */
-.sidebar.collapsed .role-name,
+.role-link {
+    font-size: 0.8rem;
+    font-weight: inherit;
+    padding: 8px 15px;
+    border-bottom: 0.01em solid rgba(15, 88, 129, 0.94);
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    color: var(--link-color);
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin-top: 5px;
+}
+
+.role-link:hover {
+    background-color: var(--link-hover-bg);
+    color: var(--link-color);
+}
+
 .sidebar.collapsed .arrow,
 .sidebar.collapsed .role-link {
     display: none;
 }
 
-/* Role links styling */
-.role-link {
-    display: flex;
-    align-items: center;
-    margin: 5px 0;
-    color: white;
-}
-
-/* Link icon styling */
-.link-icon {
-    margin-right: 8px;
-}
-
-/* Animation for scrolling text */
 @keyframes marquee {
-    0% {
-        transform: translateX(100%);
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 80px;
     }
-    100% {
-        transform: translateX(-100%);
+
+    .sidebar.collapsed {
+        width: 60px;
     }
 }
